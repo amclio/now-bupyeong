@@ -16,7 +16,7 @@ const CloseIcon = ({ className, ...props }) => {
   return (
     <CloseButtonContainer
       onClick={handleClick}
-      className={`close-icon ${className}`}
+      className={`close-icon ${className || ''}`}
       {...props}
     >
       <IconContext.Provider
@@ -55,9 +55,10 @@ const CloseButtonContainer = styled('button', {
   background: 'none',
   border: 'none',
   padding: '8px',
+  cursor: 'pointer',
 })
 
-const BottomSection = () => {
+const BottomSection = ({ children, ...props }) => {
   const isOpen = useSectionOpenValue()
   const { height } = useWindowSizePercent(100, 80)
 
@@ -67,8 +68,13 @@ const BottomSection = () => {
   })
 
   return (
-    <Box shadow={isOpen} style={{ ...styles, height, bottom: -height }}>
+    <Box
+      {...props}
+      shadow={isOpen}
+      style={{ ...styles, height, bottom: -height }}
+    >
       <CloseIcon />
+      {children}
     </Box>
   )
 }

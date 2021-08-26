@@ -1,0 +1,5 @@
+export { default } from './post'
+export { default as PostTitle } from './postTitle'
+export { default as PostSubTitle } from './postSubTitle'
+export { default as PostContents } from './postContents'
+export { default as PostPhotos } from './postPhotos'
