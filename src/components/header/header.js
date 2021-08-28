@@ -1,12 +1,11 @@
 import NextLink from 'next/link'
 import { styled } from '../../lib/stitches'
 import Logo from '../../assets/logo.svg'
-import { GoMarkGithub as GithubIcon } from 'react-icons/go'
-import { BsInfoCircleFill as InfoIcon } from 'react-icons/bs'
+import { FiGithub as GithubIcon } from 'react-icons/fi'
+import { BsInfo as InfoIcon } from 'react-icons/bs'
 
 const HeaderContainer = styled('div', {
   display: 'flex',
-  justifyContent: 'space-between',
   padding: '1em',
   background: '#FFF',
   boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
@@ -17,10 +16,21 @@ const HeaderContainer = styled('div', {
 })
 
 const HeaderCenter = styled('div', {
+  flex: '0',
   fontWeight: 700,
 })
 
-const HeaderSide = styled('div', {})
+const HeaderSide = styled('div', {
+  flex: 1,
+})
+
+const HeaderLeft = styled(HeaderSide, {
+  textAlign: 'left',
+})
+
+const HeaderRight = styled(HeaderSide, {
+  textAlign: 'right',
+})
 
 const Link = styled('a', {
   color: '$gray7',
@@ -29,13 +39,13 @@ const Link = styled('a', {
 const Header = (props) => {
   return (
     <HeaderContainer {...props}>
-      <HeaderSide>
+      <HeaderLeft>
         <NextLink href="/about" passHref>
           <Link>
-            <InfoIcon size="0.8em" />
+            <InfoIcon size="1.5em" />
           </Link>
         </NextLink>
-      </HeaderSide>
+      </HeaderLeft>
       <HeaderCenter>
         <NextLink href="/" passHref>
           <Link>
@@ -43,11 +53,11 @@ const Header = (props) => {
           </Link>
         </NextLink>
       </HeaderCenter>
-      <HeaderSide>
+      <HeaderRight>
         <Link href="https://github.com/Linkmclio/now-bupyeong">
-          <GithubIcon size="0.8em" />
+          <GithubIcon size="1.1em" />
         </Link>
-      </HeaderSide>
+      </HeaderRight>
     </HeaderContainer>
   )
 }
