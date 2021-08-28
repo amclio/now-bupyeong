@@ -17,6 +17,9 @@ const Placeholder = (props) => (
     <rect x="224" y="108" rx="0" ry="0" width="100%" height="96" />
     <rect x="224" y="108" rx="0" ry="0" width="100%" height="92" />
     <rect x="224" y="210" rx="0" ry="0" width="100%" height="90" />
+    <rect x="0" y="334" rx="3" ry="3" width="410" height="6" />
+    <rect x="0" y="350" rx="3" ry="3" width="380" height="6" />
+    <rect x="0" y="366" rx="3" ry="3" width="178" height="6" />
   </ContentLoader>
 )
 

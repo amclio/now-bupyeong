@@ -1,6 +1,7 @@
 import { styled } from '../../lib/stitches'
 
-const Title = styled('div', {
+const Title = styled('h1', {
+  marginTop: 0,
   fontSize: '2rem',
   fontWeight: 700,
 })

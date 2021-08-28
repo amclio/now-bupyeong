@@ -1,3 +1,5 @@
+const withPWA = require('next-pwa')
+
 module.exports = {
   reactStrictMode: true,
 
@@ -6,11 +8,18 @@ module.exports = {
     defaultLocale: 'ko',
   },
 
-  webpack(config) {
+  webpack(config, options) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
+
+    withPWA({
+      pwa: {
+        dest: 'public',
+      },
+    }).webpack(config, options)
+
     return config
   },
 }

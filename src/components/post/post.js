@@ -3,7 +3,6 @@ import PostTitle from './postTitle'
 import PostSubTitle from './postSubTitle'
 import PostPhotos from './postPhotos'
 import PostContents from './postContents'
-import PostPlaceholder from './postPlaceholder'
 
 const Container = styled('div', {
   paddingBottom: 80,
