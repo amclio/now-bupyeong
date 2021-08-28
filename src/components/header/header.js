@@ -9,6 +9,7 @@ const HeaderContainer = styled('div', {
   boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
   zIndex: 5,
   position: 'fixed',
+  top: 0,
   width: '100%',
 })
 

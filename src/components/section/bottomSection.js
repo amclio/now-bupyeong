@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { animated, useSpring } from 'react-spring'
 import { styled } from '../../lib/stitches'
 import {
@@ -66,6 +67,12 @@ const BottomSection = ({ children, ...props }) => {
     from: { y: 0 },
     y: isOpen ? -height : 0,
   })
+
+  const setSectionOpen = useSetSectionOpenState()
+
+  useEffect(() => {
+    return () => setSectionOpen(false)
+  }, [])
 
   return (
     <Box

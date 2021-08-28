@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import KakaoMap from '../components/kakaomap/map'
 import Marker from '../components/kakaomap/marker'
 import { BottomSection } from '../components/section'
-import { api } from '../lib/api'
+import { getPlace } from '../lib/api'
 import { styled } from '../lib/stitches'
 import { useLocale } from '../lib/locale'
 import Post from '../components/post'
@@ -19,8 +19,6 @@ const localeSet = {
 const Container = styled('div', {
   overflow: 'hidden',
 })
-
-const getPlace = () => api.get('/api/place').then((res) => res.data)
 
 const Main = () => {
   const [mapState, setMapState] = useState()
