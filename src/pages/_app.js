@@ -15,6 +15,7 @@ function App({ Component, pageProps }) {
     <>
       <Head>
         <title>지금, 부평상가</title>
+        <link rel="prefetch" href="/intro-images/1-marker.jpg" />
       </Head>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
