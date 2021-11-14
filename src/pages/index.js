@@ -97,7 +97,7 @@ const Main = () => {
         <KakaoMap
           setMapState={setMapState}
           options={{
-            center: new window.kakao.maps.LatLng(37.4913, 126.72324),
+            center: new window.kakao.maps.LatLng(37.491089, 126.72358),
             level: 2,
           }}
         />
