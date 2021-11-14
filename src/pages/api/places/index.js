@@ -1,6 +1,6 @@
-import supabase from '../../lib/supabase'
+import supabase from '../../../lib/supabase'
 
-const handleData = (data) => {
+export const handleData = (data) => {
   data.name = {}
   data.description = {}
 
@@ -44,17 +44,13 @@ export default async function handler(req, res) {
       )
     `
 
-    const id = req.query.id
-
-    const { data, error } = !id
-      ? await supabase.from('place').select(schemes)
-      : await supabase.from('place').select(schemes).single()
+    const { data, error } = await supabase.from('place').select(schemes)
 
     if (error) {
       res.status(400).json({ message: 'Bad Request' })
     }
 
-    const serializedData = (!id ? data : [data]).map(handleData)
+    const serializedData = data.map(handleData)
 
     res.status(200).json(serializedData)
   } catch (error) {

@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
 import { styled } from '../../lib/stitches'
-import { getPlace } from '../../lib/api'
+import { getPlaceById } from '../../lib/api'
 import { useLocale } from '../../lib/locale'
 import Post, { PostPlaceholder } from '../../components/post'
 
@@ -23,7 +23,7 @@ const PlaceId = () => {
 
   const locale = useLocale()
 
-  const { data, isLoading } = useQuery(['places', id], () => getPlace(id))
+  const { data, isLoading } = useQuery(['places', id], () => getPlaceById(id))
 
   if (isLoading) {
     return (
@@ -33,15 +33,13 @@ const PlaceId = () => {
     )
   }
 
-  const place = data[0]
-
   return (
     <Container>
       <Post
-        title={place.name[locale]}
-        subTitle={localeSet[place.type][locale]}
-        image={place.photo}
-        contents={place.description[locale]}
+        title={data.name[locale]}
+        subTitle={localeSet[data.type][locale]}
+        image={data.photo}
+        contents={data.description[locale]}
       />
     </Container>
   )
