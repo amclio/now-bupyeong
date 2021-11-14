@@ -7,6 +7,7 @@ import { useLocale } from '../lib/locale'
 
 const Container = styled('div', {
   marginTop: 57,
+  marginBottom: 100,
 })
 
 const LinkTag = styled('a', {
