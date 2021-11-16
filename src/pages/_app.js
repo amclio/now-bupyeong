@@ -2,6 +2,7 @@ import 'sanitize.css/sanitize.css'
 import { globalStyles } from '../lib/stitches'
 import { RecoilRoot } from 'recoil'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { IdProvider as RadixIdProvider } from '@radix-ui/react-id'
 
 import Head from 'next/head'
 import Layout from '../components/layout'
@@ -19,9 +20,11 @@ function App({ Component, pageProps }) {
       </Head>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <RadixIdProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </RadixIdProvider>
         </QueryClientProvider>
       </RecoilRoot>
     </>
