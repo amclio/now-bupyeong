@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import { styled } from '../../lib/stitches'
 import Logo from '../../assets/logo.svg'
-import { FiGithub as GithubIcon } from 'react-icons/fi'
+import { BsGear as SettingIcon } from 'react-icons/bs'
 import { BsInfo as InfoIcon } from 'react-icons/bs'
 
 const HeaderContainer = styled('div', {
@@ -54,9 +54,11 @@ const Header = (props) => {
         </NextLink>
       </HeaderCenter>
       <HeaderRight>
-        <Link href="https://github.com/Linkmclio/now-bupyeong">
-          <GithubIcon size="1.1em" />
-        </Link>
+        <NextLink href="/setting" passHref>
+          <Link>
+            <SettingIcon size="1em" />
+          </Link>
+        </NextLink>
       </HeaderRight>
     </HeaderContainer>
   )
