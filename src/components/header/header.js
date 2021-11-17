@@ -1,8 +1,11 @@
 import NextLink from 'next/link'
 import { styled } from '../../lib/stitches'
 import Logo from '../../assets/logo.svg'
+import EnLogo from '../../assets/logo-en.svg'
+import JaLogo from '../../assets/logo-ja.svg'
 import { BsGear as SettingIcon } from 'react-icons/bs'
 import { BsInfo as InfoIcon } from 'react-icons/bs'
+import { useRouter } from 'next/router'
 
 const HeaderContainer = styled('div', {
   display: 'flex',
@@ -37,6 +40,8 @@ const Link = styled('a', {
 })
 
 const Header = (props) => {
+  const { locale } = useRouter()
+
   return (
     <HeaderContainer {...props}>
       <HeaderLeft>
@@ -49,7 +54,9 @@ const Header = (props) => {
       <HeaderCenter>
         <NextLink href="/" passHref>
           <Link>
-            <Logo />
+            {locale === 'ko' && <Logo />}
+            {locale === 'en' && <EnLogo />}
+            {locale === 'ja' && <JaLogo />}
           </Link>
         </NextLink>
       </HeaderCenter>

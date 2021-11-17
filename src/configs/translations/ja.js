@@ -1,4 +1,7 @@
 const translation = {
+  detail: {
+    exit: '出口',
+  },
   menu: {
     map: '地図',
     place: '場所',

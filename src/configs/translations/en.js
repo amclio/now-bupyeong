@@ -1,4 +1,7 @@
 const translation = {
+  detail: {
+    exit: 'Exit',
+  },
   menu: {
     map: 'Map',
     place: 'Place',

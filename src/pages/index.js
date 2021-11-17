@@ -7,6 +7,7 @@ import Modal from '../components/modal'
 import { getPlace } from '../lib/api'
 import { styled } from '../lib/stitches'
 import { useLocale } from '../hooks/use-locale'
+import { useTranslation } from '../hooks'
 import Post from '../components/post'
 import { useSetSectionOpenState } from '../states/uiSectionState'
 import { useIntroductionState } from '../states/introductionState'
@@ -52,6 +53,7 @@ const Main = () => {
   const [isIntroModalOpen, setIntroModalOpen] = useState(false)
 
   const locale = useLocale()
+  const translation = useTranslation()
 
   const handleMarkerClick = (id) => {
     setCurrentPlaceId(id)
@@ -116,7 +118,7 @@ const Main = () => {
           {place && (
             <Post
               title={place.name[locale]}
-              subTitle={localeSet[place.type][locale]}
+              subTitle={translation.detail.exit}
               image={place.photo}
               contents={place.description[locale]}
             />
