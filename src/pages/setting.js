@@ -77,7 +77,9 @@ const LanguageBox = () => {
   return (
     <StyledBoxRoot>
       <Box.Content
-        title={translation.setting.language}
+        title={`${translation.setting.language}${
+          router.locale === 'en' ? '' : ' (Language)'
+        }`}
         subTitle={translation.setting.changeLanguage}
       >
         <Combobox.Root>
