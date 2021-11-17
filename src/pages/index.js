@@ -6,18 +6,10 @@ import { BottomSection } from '../components/section'
 import Modal from '../components/modal'
 import { getPlace } from '../lib/api'
 import { styled } from '../lib/stitches'
-import { useLocale } from '../hooks/use-locale'
-import { useTranslation } from '../hooks'
+import { useTranslation, useLocale } from '../hooks'
 import Post from '../components/post'
 import { useSetSectionOpenState } from '../states/uiSectionState'
 import { useIntroductionState } from '../states/introductionState'
-
-const localeSet = {
-  exit: {
-    english: 'Exit',
-    korean: '출구',
-  },
-}
 
 const Container = styled('div', {
   overflow: 'hidden',

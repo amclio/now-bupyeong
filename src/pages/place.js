@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { styled } from '../lib/stitches'
 import { PostList, PostListPlaceholder } from '../components/list'
 import { getPlace } from '../lib/api'
-import { useLocale } from '../hooks/use-locale'
+import { useTranslation, useLocale } from '../hooks'
 
 const Container = styled('div', {
   marginTop: 57,
@@ -23,6 +23,7 @@ const localeSet = {
 }
 
 const Place = () => {
+  const translation = useTranslation()
   const locale = useLocale()
 
   const { data, isLoading } = useQuery('places', getPlace)
@@ -46,7 +47,7 @@ const Place = () => {
           <LinkTag>
             <PostList
               title={name[locale]}
-              subTitle={localeSet[type][locale]}
+              subTitle={translation.detail[type]}
               image={photo[0]}
             />
           </LinkTag>

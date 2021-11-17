@@ -5,8 +5,10 @@ export const localeMap = {
   en: 'english',
 }
 
-export const useLocale = () => {
+const useLocale = () => {
   const { locale } = useRouter()
 
   return localeMap[locale]
 }
+
+export default useLocale
