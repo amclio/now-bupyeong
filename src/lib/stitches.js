@@ -34,6 +34,5 @@ export const globalStyles = cssGlobal({
     fontFamily:
       "-apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Pretendard, Roboto, 'Noto Sans KR', 'Segoe UI', 'Malgun Gothic', sans-serif;",
     cursor: 'initial',
-    wordBreak: 'keep-all',
   },
 })

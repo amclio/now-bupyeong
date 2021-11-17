@@ -2,6 +2,7 @@ import { styled } from '../lib/stitches'
 import { useRouter } from 'next/router'
 import { useSelect } from 'downshift'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from '../hooks'
 import * as Box from '../components/box'
 import * as Combobox from '../components/combobox'
 import Button from '../components/button'
@@ -47,6 +48,7 @@ const languages = [
 
 const LanguageBox = () => {
   const router = useRouter()
+  const translation = useTranslation()
 
   const initialLanguageIndex = languages.findIndex(
     ({ iso }) => iso === router.locale
@@ -73,7 +75,10 @@ const LanguageBox = () => {
 
   return (
     <StyledBoxRoot>
-      <Box.Content title="언어" subTitle="바꿀 언어를 선택하세요.">
+      <Box.Content
+        title={translation.setting.language}
+        subTitle={translation.setting.changeLanguage}
+      >
         <Combobox.Root>
           <Combobox.Button {...getToggleButtonProps()}>
             {selectedItem.name}
@@ -94,7 +99,9 @@ const LanguageBox = () => {
       </Box.Content>
       <Box.Bottom>
         <Box.BottomRight>
-          <Button onClick={handleLanguageClick}>저장하기</Button>
+          <Button onClick={handleLanguageClick}>
+            {translation.setting.save}
+          </Button>
         </Box.BottomRight>
       </Box.Bottom>
     </StyledBoxRoot>
@@ -102,6 +109,7 @@ const LanguageBox = () => {
 }
 
 const FeedbackBox = () => {
+  const translation = useTranslation()
   const { register, handleSubmit } = useForm()
 
   const onSubmit = (data) => {
@@ -111,24 +119,28 @@ const FeedbackBox = () => {
   return (
     <StyledBoxRoot>
       <Box.Content
-        title="피드백"
-        subTitle="이 앱이 편리한가요? 저희에게 어떤지 알려주세요."
+        title={translation.setting.feedback}
+        subTitle={translation.setting.isConvenient}
       >
         <form onClick={handleSubmit(onSubmit)}>
-          <StyledLabel htmlFor="feedback-email">이메일</StyledLabel>
+          <StyledLabel htmlFor="feedback-email">
+            {translation.setting.email}
+          </StyledLabel>
           <StyledInput
             type="email"
             id="feedback-email"
             {...register('email')}
           />
-          <StyledLabel htmlFor="feedback-data">내용</StyledLabel>
+          <StyledLabel htmlFor="feedback-data">
+            {translation.setting.content}
+          </StyledLabel>
           <StyledTextarea id="feedback-data" {...register('feedback')} />
         </form>
       </Box.Content>
       <Box.Bottom>
         <Box.BottomRight>
           <Button type="submit" onClick={handleSubmit(onSubmit)}>
-            보내기
+            {translation.setting.send}
           </Button>
         </Box.BottomRight>
       </Box.Bottom>
@@ -137,9 +149,11 @@ const FeedbackBox = () => {
 }
 
 const Setting = () => {
+  const translation = useTranslation()
+
   return (
     <Container>
-      <Title>설정</Title>
+      <Title>{translation.setting.setting}</Title>
       <LanguageBox />
       <FeedbackBox />
     </Container>

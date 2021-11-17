@@ -1,6 +1,7 @@
 import { styled } from '../../lib/stitches'
 import MenuItem from './menuItem'
 import { FaMap, FaMapMarkerAlt } from 'react-icons/fa'
+import { useTranslation } from '../../hooks'
 
 const Container = styled('div', {
   display: 'flex',
@@ -20,13 +21,15 @@ const Container = styled('div', {
 })
 
 const Menu = () => {
+  const translation = useTranslation()
+
   return (
     <Container>
       <MenuItem Icon={FaMap} href="/">
-        지도
+        {translation.menu.map}
       </MenuItem>
       <MenuItem Icon={FaMapMarkerAlt} href="/place">
-        장소
+        {translation.menu.place}
       </MenuItem>
     </Container>
   )
