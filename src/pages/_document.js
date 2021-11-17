@@ -26,6 +26,11 @@ class NextDocument extends Document {
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapKey}&libraries=drawing`}
           />
 
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
+
           <meta name="application-name" content={APP_NAME} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
