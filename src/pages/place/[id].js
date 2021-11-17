@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
 import { styled } from '../../lib/stitches'
 import { getPlaceById } from '../../lib/api'
-import { useLocale } from '../../lib/locale'
+import { useLocale } from '../../hooks/use-locale'
 import Post, { PostPlaceholder } from '../../components/post'
 
 const localeSet = {

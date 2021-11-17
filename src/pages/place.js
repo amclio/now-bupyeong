@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { styled } from '../lib/stitches'
 import { PostList, PostListPlaceholder } from '../components/list'
 import { getPlace } from '../lib/api'
-import { useLocale } from '../lib/locale'
+import { useLocale } from '../hooks/use-locale'
 
 const Container = styled('div', {
   marginTop: 57,

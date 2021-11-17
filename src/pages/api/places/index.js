@@ -24,26 +24,26 @@ export const handleData = (data) => {
   return data
 }
 
+export const schemes = `
+  id,
+  type,
+  lat,
+  lon,
+  _name: place_name (
+    language,
+    name
+  ),
+  _description: place_description (
+    language,
+    description
+  ),
+  photo: place_photo (
+    url: photo_url
+  )
+`
+
 export default async function handler(req, res) {
   try {
-    const schemes = `
-      id,
-      type,
-      lat,
-      lon,
-      _name: place_name (
-        language,
-        name
-      ),
-      _description: place_description (
-        language,
-        description
-      ),
-      photo: place_photo (
-        url: photo_url
-      )
-    `
-
     const { data, error } = await supabase.from('place').select(schemes)
 
     if (error) {
@@ -54,7 +54,6 @@ export default async function handler(req, res) {
 
     res.status(200).json(serializedData)
   } catch (error) {
-    console.log('~ error', error)
     res.status(400).json({ message: 'Bad Request' })
   }
 }

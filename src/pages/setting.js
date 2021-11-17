@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useSelect } from 'downshift'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '../hooks'
+import { postFeedback } from '../lib/api'
 import * as Box from '../components/box'
 import * as Combobox from '../components/combobox'
 import Button from '../components/button'
@@ -112,8 +113,8 @@ const FeedbackBox = () => {
   const translation = useTranslation()
   const { register, handleSubmit } = useForm()
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onSubmit = async (data) => {
+    await postFeedback(data)
   }
 
   return (
@@ -122,7 +123,7 @@ const FeedbackBox = () => {
         title={translation.setting.feedback}
         subTitle={translation.setting.isConvenient}
       >
-        <form onClick={handleSubmit(onSubmit)}>
+        <form>
           <StyledLabel htmlFor="feedback-email">
             {translation.setting.email}
           </StyledLabel>
@@ -134,7 +135,7 @@ const FeedbackBox = () => {
           <StyledLabel htmlFor="feedback-data">
             {translation.setting.content}
           </StyledLabel>
-          <StyledTextarea id="feedback-data" {...register('feedback')} />
+          <StyledTextarea id="feedback-data" {...register('content')} />
         </form>
       </Box.Content>
       <Box.Bottom>

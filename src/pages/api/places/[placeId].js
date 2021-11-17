@@ -1,28 +1,10 @@
 import supabase from '../../../lib/supabase'
-import { handleData } from '.'
+import { handleData, schemes } from '.'
 
 export default async function handler(req, res) {
   const id = req.query.placeId
 
   try {
-    const schemes = `
-      id,
-      type,
-      lat,
-      lon,
-      _name: place_name (
-        language,
-        name
-      ),
-      _description: place_description (
-        language,
-        description
-      ),
-      photo: place_photo (
-        url: photo_url
-      )
-    `
-
     const { data, error } = await supabase
       .from('place')
       .select(schemes)
@@ -37,7 +19,6 @@ export default async function handler(req, res) {
 
     res.status(200).json(serializedData)
   } catch (error) {
-    console.log('~ error', error)
     res.status(400).json({ message: 'Bad Request' })
   }
 }
